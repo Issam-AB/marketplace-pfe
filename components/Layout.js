@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-const Layout = ({ Cheldren }) => {
+const Layout = ({ children }) => {
 	return (
 		<div>
 			<Navbar />
-			{Cheldren}
+			{children}
 		</div>
 	);
 };
