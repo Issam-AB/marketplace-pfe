@@ -1,4 +1,5 @@
 import Banner from '../components/Banner';
+import ProductFeed from '../components/ProductFeed ';
 
 const Home = () => {
   return (
@@ -6,6 +7,7 @@ const Home = () => {
       {/* Banner */}
       <Banner />
       {/* Product Feed */}
+      <ProductFeed />
     </main>
   );
 };

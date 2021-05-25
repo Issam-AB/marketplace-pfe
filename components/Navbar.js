@@ -101,7 +101,7 @@ export default function Navabar() {
                 </div>
               </div>
 
-              <div className="sm:static sm:inset-auto sm:ml-6 sm:pr-0 absolute inset-y-0 right-0 flex items-center pr-2">
+              <div className="sm:static sm:inset-auto sm:ml-6 sm:pr-0 absolute z-40 inset-y-0 right-0 flex items-center pr-2">
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   {({ open }) => (
