@@ -3,7 +3,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Banner = () => {
   return (
-    <div className="relative">
+    <div className="relative h-1/2">
       <div className="absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20 " />
       <Carousel
         autoPlay
@@ -18,11 +18,11 @@ const Banner = () => {
         </div>
 
         <div>
-          <img loading="lazy" src="/images/2042.jpg" alt="" />
+          <img loading="lazy" src="/images/24.jpg" alt="" />
         </div>
 
         <div>
-          <img loading="lazy" src="/images/103.jpg" alt="" />
+          <img loading="lazy" src="/images/12.jpg" alt="" />
         </div>
 
         <div>
@@ -30,7 +30,7 @@ const Banner = () => {
         </div>
 
         <div>
-          <img loading="lazy" src="/images/102.jpg" alt="" />
+          <img loading="lazy" src="/images/30.jpg" alt="" />
         </div>
       </Carousel>
     </div>

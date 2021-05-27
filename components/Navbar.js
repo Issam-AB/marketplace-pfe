@@ -11,8 +11,8 @@ import {
 import Link from 'next/link';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
+  { name: 'Product', href: '#', current: true },
+  { name: 'Account', href: '#', current: false },
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
 ];
@@ -51,7 +51,7 @@ export default function Navabar() {
               </div>
 
               {/* Search bar */}
-              <div className="relative hidden sm:flex items-center h-10 rounded-md flex-grow  cursor-pointer bg-yellow-400 hover:bg-yellow-500">
+              <div className="relative hidden sm:flex items-center h-10 rounded-md flex-grow  cursor-pointer bg-green-700 hover:bg-green-900">
                 <div className="border-fuchsia-600 absolute left-0 flex items-center border-l-2 bg-gray-200">
                   <select
                     id="currency"
@@ -70,7 +70,7 @@ export default function Navabar() {
                   type="text"
                   placeholder="Search for anyting..."
                 />
-                <SearchIcon className="h-12 p-4" />
+                <SearchIcon className="h-12 p-4 text-white" />
               </div>
               {/* Left */}
               <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
@@ -84,7 +84,7 @@ export default function Navabar() {
                 </div>
 
                 <div className="relative link flex items-center">
-                  <span className="absolute top-0 right-0 md:right-10 h-4 w-4 rounded-full bg-yellow-400 text-center text-black ">
+                  <span className="absolute top-0 right-0 md:right-10 h-4 w-4 rounded-full bg-green-700 text-center text-white ">
                     0
                   </span>
                   <ShoppingCartIcon className="h-10" aria-hidden="true" />
