@@ -18,7 +18,7 @@ const Banner = () => {
         </div>
 
         <div>
-          <img loading="lazy" src="/images/24.jpg" alt="" />
+          <img loading="lazy" src="/images/25.jpg" alt="" />
         </div>
 
         <div>
@@ -26,7 +26,7 @@ const Banner = () => {
         </div>
 
         <div>
-          <img loading="lazy" src="/images/104.jpg" alt="" />
+          <img loading="lazy" src="/images/34.jpg" alt="" />
         </div>
 
         <div>
