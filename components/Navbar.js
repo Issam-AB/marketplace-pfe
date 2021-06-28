@@ -9,6 +9,8 @@ import {
   SearchIcon,
 } from '@heroicons/react/outline';
 import Link from 'next/link';
+import { signIn, signOut, useSession } from 'next-auth/client';
+import { useRouter } from 'next/router';
 
 const navigation = [
   { name: 'Product', href: '#', current: true },
@@ -22,6 +24,9 @@ function classNames(...classes) {
 }
 
 export default function Navabar() {
+  const [session] = useSession();
+  const router = useRouter();
+
   return (
     <Disclosure as="nav" className="bg-marketplace_blue">
       {({ open }) => (
@@ -41,13 +46,12 @@ export default function Navabar() {
               </div>
 
               <div className="hover:scale-110 flex items-center flex-shrink-0 transition duration-150 transform">
-                <Link href="/">
-                  <img
-                    className="lg:block h-50 hidden w-auto  -ml-5"
-                    src="/images/marketplace.png"
-                    alt="Workflow"
-                  />
-                </Link>
+                <img
+                  onClick={() => router.push('/')}
+                  className="lg:block h-50 hidden w-auto  -ml-5"
+                  src="/images/marketplace.png"
+                  alt="Workflow"
+                />
               </div>
 
               {/* Search bar */}
@@ -74,16 +78,24 @@ export default function Navabar() {
               </div>
               {/* Left */}
               <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
-                <div className="link">
-                  <p>hello Issam Aboulfadl</p>
+                <div
+                  onClick={!session ? signIn : signOut}
+                  className="cursor-pointer link"
+                >
+                  <p className="hover:underline">
+                    {session ? `Hello, ${session.user.name}` : 'sign In'}
+                  </p>
                   <p className="font-extrabold md:text-sm">Account & Lists</p>
                 </div>
-                <div className="link">
+                <div className="cursor-pointer link">
                   <p>Returns</p>
                   <p className="font-extrabold md:text-sm">& Orders</p>
                 </div>
 
-                <div className="relative link flex items-center">
+                <div
+                  className="relative link flex items-center"
+                  onClick={() => router.push('/checkout')}
+                >
                   <span className="absolute top-0 right-0 md:right-10 h-4 w-4 rounded-full bg-green-700 text-center text-white ">
                     0
                   </span>
@@ -110,7 +122,7 @@ export default function Navabar() {
                         <Menu.Button className="focus:outline-none invisible md:visible focus:ring-2  focus:ring-offset-gray-800 focus:ring-white flex text-sm bg-gray-800 rounded-full">
                           <img
                             className="hover:scale-110  h-10 transition duration-150 transform rounded-full invisible md:visible"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                            src={session?.user.image}
                             alt=""
                           />
                         </Menu.Button>
@@ -160,6 +172,7 @@ export default function Navabar() {
                           <Menu.Item>
                             {({ active }) => (
                               <a
+                                onClick={signOut}
                                 href="#"
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
