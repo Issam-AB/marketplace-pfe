@@ -11,9 +11,11 @@ import {
 import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { selectItem } from '../slice/basketSlice';
 
 const navigation = [
-  { name: 'Product', href: '#', current: true },
+  { name: 'Product', href: '/', current: true },
   { name: 'Account', href: '#', current: false },
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
@@ -26,6 +28,7 @@ function classNames(...classes) {
 export default function Navabar() {
   const [session] = useSession();
   const router = useRouter();
+  const items = useSelector(selectItem);
 
   return (
     <Disclosure as="nav" className="bg-marketplace_blue">
@@ -97,7 +100,7 @@ export default function Navabar() {
                   onClick={() => router.push('/checkout')}
                 >
                   <span className="absolute top-0 right-0 md:right-10 h-4 w-4 rounded-full bg-green-700 text-center text-white ">
-                    0
+                    {items.length}
                   </span>
                   <ShoppingCartIcon className="h-10" aria-hidden="true" />
                   <p className=" hidden md:inline font-extrabold md:text-sm mt-2">

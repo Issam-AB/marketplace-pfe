@@ -14,11 +14,11 @@ function MyApp({ Component, pageProps }) {
         <title>Marketplace</title>
       </Head>
       <AuthProvider session={pageProps.session}>
-        {/* <Provider store={store}> */}
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-        {/* </Provider> */}
+        <Provider store={store}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Provider>
       </AuthProvider>
     </div>
   );

@@ -2,15 +2,33 @@ import Image from 'next/image';
 import { StarIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
 import Currency from 'react-currency-formatter';
+import { useDispatch } from 'react-redux';
+import { addToBasket } from '../slice/basketSlice';
 
 const MAX_RATING = 5;
 const MIN_RATING = 0;
 
-const Product = ({ id, title, decription, price, category, image }) => {
+const Product = ({ id, title, description, price, category, image }) => {
   const [rating] = useState(
     Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING
   );
   const [hasPrism] = useState(Math.random() < 0.5);
+
+  const dispatch = useDispatch();
+  const addItemToBasket = () => {
+    const product = {
+      id,
+      title,
+      description,
+      price,
+      category,
+      image,
+      rating,
+      hasPrism,
+    };
+    // Sending product as an action to the redux STORE... the basket slice
+    dispatch(addToBasket(product));
+  };
 
   return (
     <div className="relative m-5 flex flex-col z-30 bg-white p-10">
@@ -30,7 +48,7 @@ const Product = ({ id, title, decription, price, category, image }) => {
           ))}
       </div>
 
-      <p className="text-sx my-2 line-clamp-2">{decription}</p>
+      <p className="text-sx my-2 line-clamp-2">{description}</p>
 
       <div className="mb-5">
         <Currency quantity={price} currency="mad" />
@@ -45,7 +63,9 @@ const Product = ({ id, title, decription, price, category, image }) => {
           <p className="text-xs text-gray-500 ">FREE Next-day Delivery </p>
         </div>
       )}
-      <button className="mt-auto button">Add to Basket</button>
+      <button onClick={addItemToBasket} className="mt-auto button">
+        Add to Basket
+      </button>
     </div>
   );
 };
