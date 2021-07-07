@@ -204,7 +204,7 @@ export default function Navabar() {
               All
             </p>
             <p className="link">Prime</p>
-            <p className="link">Marketplace Service</p>
+            <p className="link">Business services</p>
             <p className="link">Today's Deals</p>
             <p className="link hidden lg:inline-flex">Blogs</p>
             <p className="link hidden lg:inline-flex">Food & Grocery</p>
