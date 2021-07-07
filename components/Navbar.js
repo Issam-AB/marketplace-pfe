@@ -90,7 +90,10 @@ export default function Navabar() {
                   </p>
                   <p className="font-extrabold md:text-sm">Account & Lists</p>
                 </div>
-                <div className="cursor-pointer link">
+                <div
+                  className="cursor-pointer link"
+                  onClick={() => router.push('/orders')}
+                >
                   <p>Returns</p>
                   <p className="font-extrabold md:text-sm">& Orders</p>
                 </div>
@@ -198,17 +201,14 @@ export default function Navabar() {
           <div className="flex items-center bg-marketplace_blue-light text-white text-sm space-x-3 p-2 pl-6">
             <p className="link flex items-center">
               <MenuIcon className="h-6 mr-1" />
-              Alt
+              All
             </p>
-            <p className="link">Advertisement</p>
-            <p className="link">Customer Service</p>
+            <p className="link">Prime</p>
+            <p className="link">Marketplace Service</p>
             <p className="link">Today's Deals</p>
-            <p className="link hidden lg:inline-flex">Electronics</p>
+            <p className="link hidden lg:inline-flex">Blogs</p>
             <p className="link hidden lg:inline-flex">Food & Grocery</p>
-            <p className="link hidden lg:inline-flex">Prime</p>
-            <p className="link hidden lg:inline-flex">Buy Again</p>
-            <p className="link hidden lg:inline-flex">Shopper Toolkit</p>
-            <p className="link hidden lg:inline-flex">Health & Personal Care</p>
+            <p className="link hidden lg:inline-flex">Registry</p>
           </div>
 
           <Disclosure.Panel className="sm:hidden">
